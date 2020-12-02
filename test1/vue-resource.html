@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+  <h1>vue-resource插件讲解</h1>
+  <a href="javascript:;" class="btn btn-primary" v-on:click="get">Get请求</a>
+  <a href="javascript:;" class="btn btn-primary" @click = "post">post请求</a>
+  <a href="javascript:;" class="btn btn-primary"v-on:click="jsonp">jsonp请求</a>
+  <div>{{msg}}</div>
+</div>
+<script>
+  new Vue({
+    el:"#app",
+    data:{
+      msg:''
+    },
+    mounted: function () {
+      Vue.http.interceptors.push(function (respuest,next) {
+        console.log("请求初始化");
+        next(function (response) {
+          console.log("ssss");
+          return response
+        })
+      })
+    },
+    methods:{
+      get: function () {
+        this.$http.get("https://www.imooc.com/static/moco/v1.0/dist/css/moco.min.css?v=2020041010",{
+          params:{
+            userId:"102"
+          },
+          headers:{
+            token:"asdf"
+          }
+        }).then(res =>{
+          this.msg = res.data;
+        },error =>{
+          this.msg = error;
+        })
+      },
+      post: function () {
+        this.$http.post("package.json",{
+          userId:103
+        },{
+          headers:{
+            access_token:'asd'
+          }
+        }).then(function(res){
+          this.msg = res.data;
+        })
+      },
+      jsonp: function () {
+        this.$http.jsonp("https://www.imooc.com/course/ajaxcourselearn?cid=9").then(res=> {
+          this.msg = res.data;
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #log{
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+<h2>ES6演示</h2>
+<div id="log" class="log"></div>
+<script>
+
+  var str = `console.log("a:"+a);
+  var a= 1;
+  console.log("b:"+b);
+  let b = 2;`;
+
+
+  printLog(str);
+
+  function printLog(str) {
+    document.getElementById("log").innerText = str;
+  }
+</script>
+</body>
+</html>

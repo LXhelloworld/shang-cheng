@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6-2</title>
+</head>
+<body>
+<script>
+  function sum(x,y,z){
+    let totle = 0;
+    if(x) totle = x;
+    if(y) totle = y;
+    if(z) totle = z;
+    console.log("totle:"+totle);
+  }
+  sum(5,"",9);
+  function sum1(...m){
+    let total = 0;
+    for (var i of m){
+      total +=i;
+    }
+    console.log(`total:${total}`);
+  }
+  sum1(1,2,2,2,3,4,5,6);
+
+  let sum2 = (...m)=>{
+    let total = 0;
+    for (let i of m){
+      total +=i;
+    }
+    console.log(`total:${total}`);
+  }
+  sum2(2,3,5,1,6,123,0);
+</script>
+</body>
+</html>

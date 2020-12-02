@@ -1,0 +1,24 @@
+{
+  "status":"0",
+  "msg":"",
+  "result":[
+    {
+      "proI":"10022",
+      "proN":"xiaomi5",
+      "proP":"500",
+      "proImg":"1.jpg"
+    },
+    {
+      "proI":"10022",
+      "proN":"xiaomi6",
+      "proP":"1500",
+      "proImg":"2.jpg"
+    },
+    {
+      "proI":"10022",
+      "proN":"xiaomi7",
+      "proP":"2500",
+      "proImg":"3.jpg"
+    }
+  ]
+}
